@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Nuevo Estudiante</title>
+</head>
+<body>
+    <h1>Nuevo Estudiante</h1>
+
+    <form action="/estudiante/crear" method="POST">
+        <p>
+            <label for="cursos_id">Curso:</label>
+            <select name="cursos_id" id="cursos_id">
+                {% for curso in cursos %}
+                    <option value="{{ curso.id }}">{{ curso.nombre }}</option>
+                {% endfor %}
+            </select>
+        </p>
+        <p>
+            <label for="nombre">Nombre:</label>
+            <input type="text" name="nombre" id="nombre">
+        </p>
+        <p>
+            <label for="apellido">Apellido:</label>
+            <input type="text" name="apellido" id="apellido">
+        </p>
+        <p>
+            <label for="edad">Edad:</label>
+            <input type="number" name="edad" id="edad">
+        </p>
+        <button type="submit">Crear</button>
+    </form>
+
+    <p><a href="/cursos">Inicio</a></p>
+</body>
+</html>

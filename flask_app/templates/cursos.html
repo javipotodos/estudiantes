@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Cursos</title>
+</head>
+<body>
+    <h1>Cursos</h1>
+    
+    <div style="display: flex; gap: 40px;">
+        <div>
+            <h2>Nuevo Curso</h2>
+            <form action="/curso/crear" method="POST">
+                <p>
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" name="nombre" id="nombre">
+                </p>
+                <button type="submit">Crear</button>
+            </form>
+        </div>
+
+        <div>
+            <h2>Todos los Cursos</h2>
+            <ul>
+                {% for curso in cursos %}
+                    <li><a href="/curso/{{ curso.id }}">{{ curso.nombre }}</a></li>
+                {% endfor %}
+            </ul>
+            <p><a href="/estudiantes/nuevo">Agregar Estudiante</a></p>
+        </div>
+    </div>
+</body>
+</html>

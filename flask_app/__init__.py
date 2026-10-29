@@ -1,6 +1,7 @@
 from flask import Flask
-from flask_bcrypt import Bcrypt
-
 app = Flask(__name__)
-app.secret_key = "esta_es_una_clave_secreta_muy_segura"
-bcrypt = Bcrypt(app)
+app.secret_key = "clave_secreta"
+
+# Importante: aquí se deben importar los controladores para que reconozca las rutas
+from flask_app.controllers import cursos
+from flask_app.controllers import estudiantes
